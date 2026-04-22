@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>北京永合隆科技有限公司</title>
+  <meta
+    name="description"
+    content="北京永合隆科技有限公司官方网站，提供企业数字化产品、软硬件集成、信息安全与行业解决方案服务。"
+  />
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --surface: rgba(255, 255, 255, 0.88);
+      --surface-strong: #ffffff;
+      --text: #1e2430;
+      --muted: #5b6472;
+      --primary: #8f1f1d;
+      --primary-dark: #601311;
+      --accent: #d8a65a;
+      --line: rgba(30, 36, 48, 0.1);
+      --shadow: 0 20px 60px rgba(66, 30, 18, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(216, 166, 90, 0.18), transparent 28%),
+        radial-gradient(circle at right 15% top 18%, rgba(143, 31, 29, 0.12), transparent 22%),
+        linear-gradient(180deg, #fbf8f2 0%, #f6efe6 42%, #efe5d8 100%);
+      line-height: 1.65;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background-image:
+        linear-gradient(rgba(143, 31, 29, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(143, 31, 29, 0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 92%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(251, 248, 242, 0.8);
+      border-bottom: 1px solid rgba(143, 31, 29, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #fff;
+      font-size: 20px;
+      background:
+        linear-gradient(135deg, #c64133 0%, #8f1f1d 55%, #61120f 100%);
+      box-shadow: 0 16px 32px rgba(143, 31, 29, 0.22);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-text strong {
+      font-size: 18px;
+    }
+
+    .brand-text span {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      background: rgba(143, 31, 29, 0.06);
+    }
+
+    .hero {
+      padding: 64px 0 36px;
+    }
+
+    .hero-wrap {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 28px;
+      padding: 40px;
+      border: 1px solid rgba(143, 31, 29, 0.08);
+      border-radius: 32px;
+      background:
+        linear-gradient(135deg, rgba(143, 31, 29, 0.97) 0%, rgba(123, 30, 29, 0.92) 30%, rgba(38, 43, 57, 0.95) 100%);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-wrap::before,
+    .hero-wrap::after {
+      position: absolute;
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero-wrap::before {
+      inset: -120px auto auto -80px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
+    }
+
+    .hero-wrap::after {
+      right: -80px;
+      bottom: -100px;
+      width: 300px;
+      height: 300px;
+      transform: rotate(18deg);
+      background:
+        linear-gradient(135deg, rgba(216, 166, 90, 0.9), rgba(216, 166, 90, 0));
+      clip-path: polygon(0 0, 100% 22%, 84% 100%, 0 74%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      margin: 22px 0 16px;
+      font-size: clamp(34px, 5vw, 60px);
+      line-height: 1.08;
+      letter-spacing: 0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 640px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 16px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      font-weight: 600;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, #f0bf74 0%, #d8a65a 100%);
+      color: #3a1f0d;
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      align-self: stretch;
+    }
+
+    .hero-panel::before {
+      position: absolute;
+      inset: auto 24px 26px auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.06);
+      content: "";
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(19, 22, 31, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 16px;
+    }
+
+    .hero-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .hero-card p,
+    .hero-card li {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 14px;
+    }
+
+    .hero-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .section-title {
+      margin-bottom: 22px;
+    }
+
+    .section-title span {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.15;
+    }
+
+    .section-title p {
+      margin: 12px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+    }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card,
+    .adv-card,
+    .contact-card {
+      padding: 26px;
+    }
+
+    .service-card::before,
+    .adv-card::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      content: "";
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    .card-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(143, 31, 29, 0.08);
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .panel h3 {
+      margin: 18px 0 10px;
+      font-size: 22px;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .about-main,
+    .about-side {
+      padding: 30px;
+    }
+
+    .about-main {
+      background:
+        linear-gradient(135deg, rgba(143, 31, 29, 0.98), rgba(77, 23, 31, 0.96));
+      color: #fff;
+    }
+
+    .about-main p,
+    .about-main li {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .about-main ul {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding-left: 18px;
+    }
+
+    .stats {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stat-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(143, 31, 29, 0.04);
+      border: 1px solid rgba(143, 31, 29, 0.08);
+    }
+
+    .stat-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--primary);
+      font-size: 26px;
+    }
+
+    .certificates {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .certificate-card {
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .certificate-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: #f7f3ed;
+    }
+
+    .certificate-card .caption {
+      padding: 16px 18px 18px;
+    }
+
+    .certificate-card strong {
+      display: block;
+      font-size: 17px;
+    }
+
+    .certificate-card span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .contact-card h3 {
+      margin-top: 0;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(143, 31, 29, 0.04);
+      border: 1px solid rgba(143, 31, 29, 0.08);
+    }
+
+    .contact-item small {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-item a {
+      color: var(--primary);
+      font-weight: 700;
+      word-break: break-all;
+    }
+
+    .cta-box {
+      padding: 26px;
+      border-radius: 24px;
+      background:
+        linear-gradient(160deg, #1f2531 0%, #86211d 100%);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box p {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .site-footer {
+      padding: 18px 0 34px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(143, 31, 29, 0.08);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-wrap,
+      .about,
+      .contact,
+      .grid-3,
+      .grid-2,
+      .certificates {
+        grid-template-columns: 1fr;
+      }
+
+      .certificates {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(calc(100% - 28px), var(--width));
+      }
+
+      .nav {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-wrap,
+      .about-main,
+      .about-side,
+      .service-card,
+      .adv-card,
+      .contact-card,
+      .cta-box {
+        padding: 22px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .certificates {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <div class="brand-mark">永</div>
+        <div class="brand-text">
+          <strong>北京永合隆科技有限公司</strong>
+          <span>Yonghelong Technology</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">公司介绍</a></li>
+          <li><a href="#services">业务方向</a></li>
+          <li><a href="#honors">荣誉证书</a></li>
+          <li><a href="#contact">联系我们</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <div class="eyebrow">企业官网 / iOS 上架展示页</div>
+          <h1>面向政企客户的数字化产品与信息化服务伙伴</h1>
+          <p>
+            北京永合隆科技有限公司聚焦软硬件产品销售、行业信息化建设与数字化协同服务，
+            提供更稳定、更规范、更值得信赖的企业服务体验。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">商务联系</a>
+            <a class="btn" href="#honors">查看荣誉证书</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-card">
+            <strong>服务定位</strong>
+            <p>围绕企业采购、软硬件集成、信息安全与国产化生态对接，提供专业化支持。</p>
+          </div>
+          <div class="hero-card">
+            <strong>合作覆盖</strong>
+            <ul>
+              <li>企业数字化软硬件产品服务</li>
+              <li>信息安全与基础设施协同建设</li>
+              <li>行业场景解决方案落地支持</li>
+            </ul>
+          </div>
+          <div class="hero-card">
+            <strong>合作基础</strong>
+            <p>页面内展示的多项授权与认证证书，可作为企业资质与合作能力的直观补充说明。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-title">
+          <span>About</span>
+          <h2>公司介绍</h2>
+          <p>
+            以规范化资质体系、丰富的品牌授权合作与持续的信息化服务能力，
+            为客户提供更安心的企业服务入口。
+          </p>
+        </div>
+
+        <div class="about">
+          <div class="panel about-main">
+            <h3>北京永合隆科技有限公司</h3>
+            <p>
+              公司长期面向企业客户开展信息化相关业务，覆盖软硬件产品服务、企业级设备对接、
+              信息安全产品协同以及国产化生态支持等方向，致力于打造专业、稳健、可信赖的服务形象。
+            </p>
+            <ul>
+              <li>服务方向聚焦企业数字化与基础设施建设场景</li>
+              <li>具备质量管理体系认证与高新技术企业等资质基础</li>
+              <li>拥有多家厂商授权、合作伙伴认证与行业代理证明</li>
+            </ul>
+          </div>
+
+          <div class="panel about-side">
+            <div class="stats">
+              <div class="stat-item">
+                <strong>9+</strong>
+                <span>页面内展示企业授权与认证证书</span>
+              </div>
+              <div class="stat-item">
+                <strong>多方向</strong>
+                <span>覆盖服务器、终端、安全、网络与国产化生态合作</span>
+              </div>
+              <div class="stat-item">
+                <strong>企业官网</strong>
+                <span>适合作为应用上架时的静态官方网站展示页面</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-title">
+          <span>Services</span>
+          <h2>业务方向</h2>
+          <p>结合企业服务常见场景，页面采用简洁表达方式，突出公司定位、合作能力与资质基础。</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="panel service-card">
+            <div class="card-index">01</div>
+            <h3>软硬件产品服务</h3>
+            <p>面向企业客户提供终端、服务器、网络及相关配套产品的服务支撑与合作对接。</p>
+          </article>
+          <article class="panel service-card">
+            <div class="card-index">02</div>
+            <h3>企业信息化协同</h3>
+            <p>围绕办公、基础设施与行业项目场景，提供更规范的数字化建设与协同支持。</p>
+          </article>
+          <article class="panel service-card">
+            <div class="card-index">03</div>
+            <h3>信息安全与国产化生态</h3>
+            <p>结合安全产品与国产化生态伙伴授权能力，为客户提供更完整的项目配套服务。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <span>Advantages</span>
+          <h2>合作优势</h2>
+          <p>参考企业官网展示逻辑，以更适合静态官网的方式呈现关键信息。</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="panel adv-card">
+            <div class="card-index">A</div>
+            <h3>资质展示清晰</h3>
+            <p>将质量体系认证、高新技术企业证书及厂商授权集中展示，便于快速建立企业可信度。</p>
+          </article>
+          <article class="panel adv-card">
+            <div class="card-index">B</div>
+            <h3>适合移动端浏览</h3>
+            <p>页面在桌面与手机端均可阅读，适合作为 App Store 审核期间的企业官网链接使用。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="honors">
+      <div class="container">
+        <div class="section-title">
+          <span>Honors</span>
+          <h2>荣誉证书</h2>
+          <p>以下证书图片已整理到项目本地目录，可直接随静态站点一起部署。</p>
+        </div>
+
+        <div class="certificates">
+          <article class="certificate-card">
+            <img src="assets/certificates/high-tech.png" alt="高新技术企业证书" />
+            <div class="caption">
+              <strong>高新技术企业证书</strong>
+              <span>体现企业技术资质与创新能力基础。</span>
+            </div>
+          </article>
+          <article class="certificate-card">
+            <img src="assets/certificates/iso-zh.png" alt="质量管理体系认证证书" />
+            <div class="caption">
+              <strong>质量管理体系认证</strong>
+              <span>GB/T19001-2016 / ISO9001:2015。</span>
+            </div>
+          </article>
+          <article class="certificate-card">
+            <img src="assets/certificates/iso-en.png" alt="质量管理体系英文证书" />
+            <div class="caption">
+              <strong>质量管理体系认证（英文版）</strong>
+              <span>适合补充展示企业认证信息。</span>
+            </div>
+          </article>
+          <article class="certificate-card">
+            <img src="assets/certificates/hp.png" alt="惠普授权证书" />
+            <div class="caption">
+              <strong>HP 授权证书</strong>
+              <span>惠普商用电脑产品银牌经销商授权。</span>
+            </div>
+          </article>
+          <article class="certificate-card">
+            <img src="assets/certificates/h3c.png" alt="新华三合作伙伴认证证书" />
+            <div class="caption">
+              <strong>新华三合作伙伴认证</strong>
+              <span>认证代理商合作资质展示。</span>
+            </div>
+          </article>
+          <article class="certificate-card">
+            <img src="assets/certificates/inspur.png" alt="浪潮信息授权书" />
+            <div class="caption">
+              <strong>浪潮授权书</strong>
+              <span>经销商授权与区域信息说明。</span>
+            </div>
+          </article>
+          <article class="certificate-card">
+            <img src="assets/certificates/kylinsoft.png" alt="麒麟软件授权证书" />
+            <div class="caption">
+              <strong>麒麟软件授权代理商</strong>
+              <span>金融行业授权范围展示。</span>
+            </div>
+          </article>
+          <article class="certificate-card">
+            <img src="assets/certificates/das-security.png" alt="安恒信息授权证书" />
+            <div class="caption">
+              <strong>安恒信息授权证书</strong>
+              <span>安全产品授权销售证明。</span>
+            </div>
+          </article>
+          <article class="certificate-card">
+            <img src="assets/certificates/dumy-partner.png" alt="合作伙伴授权证书" />
+            <div class="caption">
+              <strong>合作伙伴授权证书</strong>
+              <span>项目合作伙伴身份与系列产品授权。</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <span>Contact</span>
+          <h2>联系我们</h2>
+          <p>如需商务合作、项目咨询或企业服务沟通，可通过以下方式联系。</p>
+        </div>
+
+        <div class="contact">
+          <div class="panel contact-card">
+            <h3>商务沟通入口</h3>
+            <p>该页面可直接作为企业静态官网首页使用，也便于在移动端快速访问公司基础信息与资质展示内容。</p>
+            <div class="contact-list">
+              <div class="contact-item">
+                <small>公司名称</small>
+                <div>北京永合隆科技有限公司</div>
+              </div>
+              <div class="contact-item">
+                <small>联系邮箱</small>
+                <a href="mailto:wujieshen@yongshenghk.com">wujieshen@yongshenghk.com</a>
+              </div>
+              <div class="contact-item">
+                <small>官网说明</small>
+                <div>本页为企业官方网站静态展示页，可按需继续补充地址、电话、备案号与更多栏目。</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="cta-box">
+            <h3>欢迎洽谈合作</h3>
+            <p>如果你后续还需要，我可以继续把这个项目补成完整官网版本，比如再加上隐私政策页、联系我们页、备案信息区和更正式的公司介绍文案。</p>
+            <a class="btn btn-primary" href="mailto:wujieshen@yongshenghk.com">发送邮件</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 北京永合隆科技有限公司</div>
+      <div>邮箱：<a href="mailto:wujieshen@yongshenghk.com">wujieshen@yongshenghk.com</a></div>
+    </div>
+  </footer>
+</body>
+</html>
